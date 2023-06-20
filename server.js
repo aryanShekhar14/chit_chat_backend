@@ -8,6 +8,7 @@ const chatRoutes = require('./routes/chatRoutes');
 const messageRoutes = require("./routes/messageRoutes")
 const { notFound, errorHandler } = require("./middleware/errorMiddleware")
 const path = require('path')
+const cors=require("cors")
 
 
 dotenv.config();
@@ -16,8 +17,10 @@ const app = express();
 
 
 app.use(express.json()); //accept json data
+app.use(cors());
 
 app.get('/', (req, res) => {
+    res.setHeader("Access-Control-Allow-Credentials","true");
     res.send("API IS RUNNING SUCCESSFULLY");
 });
 
