@@ -39,6 +39,9 @@ const server = app.listen(5000, console.log(`Server started on port ${PORT}`.yel
 
 const io = require('socket.io')(server, {
     pingTimeout: 60000, //close connection after 60 sec if no response to save bandwidth
+    cors: {
+        origin: "https://chit-chat-84zh.onrender.com"
+    }
 })
 
 io.on("connection", (socket) => {
